@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Register";
+}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] ..:: Cadastre-se ::.. </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/register.css" asp-append-version="true" />
+</head>
+<!-- MAIN GRANDE para a navbar acompanhar -->
+<main class="main-large">
+    <!-- CONTAINER PEQUENO centralizado -->
+    <div class="register-container">
+        <div class="register-box">
+            <form method="post" asp-action="Register">
+                <h1>Cadastro</h1>
+
+                <div class="input-group">
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" id="nome" name="nome" required />
+                </div>
+
+                <div class="input-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required />
+                </div>
+
+                <div class="input-group">
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" required />
+                </div>
+
+                <div class="input-group">
+                    <label for="confirmarSenha">Confirmar Senha:</label>
+                    <input type="password" id="confirmarSenha" name="confirmarSenha" required />
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn" type="submit">Cadastrar</button>
+                </div>
+
+                <p style="text-align: center; margin-top: 20px;">Já tem uma conta?</p>
+                <a asp-controller="Auth" asp-action="Login" class="btn btn-register">Fazer Login</a>
+            </form>
+        </div>
+    </div>
+</main>

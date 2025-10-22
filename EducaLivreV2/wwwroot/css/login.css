@@ -1,0 +1,105 @@
+﻿/* MAIN GRANDE - para navbar acompanhar */
+.main-large {
+    min-height: 80vh; /* Ocupa boa parte da tela */
+    background-color: #f8f6f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CONTAINER DO LOGIN (pequeno e centralizado) */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 0 1rem;
+}
+
+.login-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+    .login-box h1 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        font-size: 2rem;
+        color: #0a2f52;
+    }
+
+.input-group {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+    .input-group label {
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+        color: #0a2f52;
+    }
+
+    .input-group input {
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+    }
+
+        .input-group input:focus {
+            border-color: #5272ff;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(82, 114, 255, 0.2);
+        }
+
+.btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.btn {
+    padding: 0.7rem;
+    background-color: #5272ff;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+    .btn:hover {
+        background-color: #3d5bd0;
+    }
+
+.btn-secondary {
+    background-color: #6c757d;
+}
+
+    .btn-secondary:hover {
+        background-color: #5a6268;
+    }
+
+.btn-register {
+    display: block;
+    margin: 1rem auto 0;
+    text-align: center;
+    background-color: #cba4f9;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-register:hover {
+        background-color: #b98de5;
+        text-decoration: none;
+        color: white;
+    }
