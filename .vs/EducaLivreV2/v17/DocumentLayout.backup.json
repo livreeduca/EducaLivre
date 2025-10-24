@@ -1,10 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Sumomo\\source\\repos\\EducaLivreV2\\",
+  "WorkspaceRootPath": "C:\\Users\\2971392511037\\Documents\\EducaLivre\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{201BE616-14D1-44FD-9388-BFC9C2508468}|EducaLivreV2\\EducaLivreV2.csproj|c:\\users\\sumomo\\source\\repos\\educalivrev2\\educalivrev2\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{201BE616-14D1-44FD-9388-BFC9C2508468}|EducaLivreV2\\EducaLivreV2.csproj|solutionrelative:educalivrev2\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{201BE616-14D1-44FD-9388-BFC9C2508468}|EducaLivreV2\\EducaLivreV2.csproj|c:\\users\\2971392511037\\documents\\educalivre\\educalivrev2\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{201BE616-14D1-44FD-9388-BFC9C2508468}|EducaLivreV2\\EducaLivreV2.csproj|solutionrelative:educalivrev2\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{201BE616-14D1-44FD-9388-BFC9C2508468}|EducaLivreV2\\EducaLivreV2.csproj|c:\\users\\2971392511037\\documents\\educalivre\\educalivrev2\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{201BE616-14D1-44FD-9388-BFC9C2508468}|EducaLivreV2\\EducaLivreV2.csproj|solutionrelative:educalivrev2\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,15 +26,28 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\2971392511037\\Documents\\EducaLivre\\EducaLivreV2\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "EducaLivreV2\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\2971392511037\\Documents\\EducaLivre\\EducaLivreV2\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "EducaLivreV2\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAJQAAAAAAAAAAAAAwLoAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-10-23T13:41:15.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "About.cshtml",
-              "DocumentMoniker": "C:\\Users\\Sumomo\\source\\repos\\EducaLivreV2\\EducaLivreV2\\Views\\Home\\About.cshtml",
-              "RelativeDocumentMoniker": "EducaLivreV2\\Views\\Home\\About.cshtml",
-              "ToolTip": "C:\\Users\\Sumomo\\source\\repos\\EducaLivreV2\\EducaLivreV2\\Views\\Home\\About.cshtml",
-              "RelativeToolTip": "EducaLivreV2\\Views\\Home\\About.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABgAAAAqAAAAAAAAAA==",
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\2971392511037\\Documents\\EducaLivre\\EducaLivreV2\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "EducaLivreV2\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\2971392511037\\Documents\\EducaLivre\\EducaLivreV2\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "EducaLivreV2\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACcAAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-22T07:38:39.594Z",
+              "WhenOpened": "2025-10-23T12:14:31.775Z",
               "EditorCaption": ""
             }
           ]
