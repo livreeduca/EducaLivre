@@ -1,6 +1,8 @@
-using System.Diagnostics;
 using EducaLivreV2.Models;
+using EducaLivreV2.Services;
+using EducaLivreV2.Filters;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace EducaLivreV2.Controllers
 {
@@ -38,7 +40,9 @@ namespace EducaLivreV2.Controllers
             return View();
         }
 
-        public IActionResult Admin()
+        // ? MÉTODO PAINEL ADMIN CORRETO:
+        [ServiceFilter(typeof(AdminAuthorizationFilter))]
+        public IActionResult PainelAdmin()
         {
             return View();
         }

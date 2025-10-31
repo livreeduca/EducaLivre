@@ -1,10 +1,13 @@
 ﻿using EducaLivreV2.Data;
+using EducaLivreV2.Filters;
 using EducaLivreV2.Models;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace EducaLivreV2.Controllers
 {
+    [ServiceFilter(typeof(AdminAuthorizationFilter))]
     public class UsuarioController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -89,6 +92,5 @@ namespace EducaLivreV2.Controllers
             }
             return RedirectToAction("Index");
         }
-
     }
 }
