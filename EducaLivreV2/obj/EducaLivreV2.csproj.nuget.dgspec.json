@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\2971392511037\\Documents\\EducaLivre\\EducaLivreV2\\EducaLivreV2.csproj": {}
+    "C:\\webideias\\EducaLivre V3\\EducaLivre\\EducaLivreV2\\EducaLivreV2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\2971392511037\\Documents\\EducaLivre\\EducaLivreV2\\EducaLivreV2.csproj": {
+    "C:\\webideias\\EducaLivre V3\\EducaLivre\\EducaLivreV2\\EducaLivreV2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\2971392511037\\Documents\\EducaLivre\\EducaLivreV2\\EducaLivreV2.csproj",
+        "projectUniqueName": "C:\\webideias\\EducaLivre V3\\EducaLivre\\EducaLivreV2\\EducaLivreV2.csproj",
         "projectName": "EducaLivreV2",
-        "projectPath": "C:\\Users\\2971392511037\\Documents\\EducaLivre\\EducaLivreV2\\EducaLivreV2.csproj",
-        "packagesPath": "C:\\Users\\2971392511037\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\2971392511037\\Documents\\EducaLivre\\EducaLivreV2\\obj\\",
+        "projectPath": "C:\\webideias\\EducaLivre V3\\EducaLivre\\EducaLivreV2\\EducaLivreV2.csproj",
+        "packagesPath": "C:\\Users\\Sumomo\\.nuget\\packages\\",
+        "outputPath": "C:\\webideias\\EducaLivre V3\\EducaLivre\\EducaLivreV2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\2971392511037\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sumomo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -51,6 +50,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -81,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

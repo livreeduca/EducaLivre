@@ -26,5 +26,8 @@ namespace EducaLivreV2.Models
 
         [Column("tipo_id")]
         public int? TipoId { get; set; } = 2; // 2 = "Usuário Comum"
+        
+        [NotMapped] // Não grava no banco - calculado dinamicamente
+        public bool IsAdmin => TipoId == 1; // 1 = Administrador
     }
 }

@@ -1,6 +1,10 @@
 wwwroot\Assets\01escola.jpg
 wwwroot\Assets\02escola.jpg
 wwwroot\Assets\03escola.jpg
+wwwroot\Assets\Codexino.svg
+wwwroot\Assets\CodexinoLogin.svg
+wwwroot\Assets\CodexinoLoginRegister.svg
+wwwroot\Assets\CodexinoRegistro.svg
 wwwroot\Assets\Logo.svg
 wwwroot\Assets\selos\eco\01.svg
 wwwroot\Assets\selos\eco\03.svg
@@ -22,6 +26,7 @@ wwwroot\css\about.css
 wwwroot\css\login.css
 wwwroot\css\privacy.css
 wwwroot\css\register.css
+wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
@@ -81,4 +86,3 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
-wwwroot\css\site.css
