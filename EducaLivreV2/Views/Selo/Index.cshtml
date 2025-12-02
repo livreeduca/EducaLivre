@@ -1,0 +1,114 @@
+﻿@model IEnumerable<EducaLivreV2.Controllers.SeloViewModel>
+@{
+    ViewData["Title"] = "Sistema de Selos";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/selos.css" asp-append-version="true" />
+}
+
+<div class="container">
+    <header class="page-header">
+        <h1>🎖️ Sistema de Selos EducaLivre</h1>
+        <p class="subtitle">Conheça todos os selos disponíveis e seus significados</p>
+        <p class="intro-text">
+            Nossos selos representam os compromissos e conquistas das instituições de ensino.
+            <strong>Dica:</strong> Quando vir um selo em uma escola, clique nele para vir direto para sua explicação detalhada!
+        </p>
+    </header>
+
+    <div class="categorias-filtro">
+        <button class="filtro-btn active" data-categoria="todos">Todos os Selos</button>
+        <button class="filtro-btn" data-categoria="Educação de Qualidade">Educação de Qualidade</button>
+        <button class="filtro-btn" data-categoria="Igualdade de Gênero">Igualdade de Gênero</button>
+        <button class="filtro-btn" data-categoria="Sustentabilidade">Sustentabilidade</button>
+    </div>
+
+    <main>
+        <div class="selos-grid">
+            @foreach (var selo in Model)
+            {
+                <!-- CADA SELO TEM SEU PRÓPRIO ID PARA ÂNCORA -->
+                <div class="selo-card" data-categoria="@selo.Categoria" id="selo-@selo.Id">
+                    <div class="selo-imagem">
+                        <img src="@selo.ImagemUrl" alt="@selo.AltText" loading="lazy">
+                    </div>
+                    <div class="selo-conteudo">
+                        <span class="selo-categoria" data-categoria="@selo.Categoria">@selo.Categoria</span>
+                        <h2 class="selo-titulo">@selo.Titulo</h2>
+                        <p class="selo-descricao">@selo.Descricao</p>
+
+                        <!-- LINK PARA COMPARTILHAR ESTE SELO ESPECÍFICO -->
+                        <div class="selo-link">
+                            <small>
+                                🔗 <a href="#selo-@selo.Id" onclick="copiarLinkSelo(@selo.Id)">Link direto para este selo</a>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <p>🎓 <strong>EducaLivre</strong> - Nascido sob a magia de uma Sexta-feira 13 abençoada! ✨</p>
+        <p>✨ "Os únicos limites são aqueles que impomos a nós mesmos" ✨</p>
+    </footer>
+</div>
+
+@section Scripts {
+    <script>
+        // Filtro de selos por categoria
+        document.addEventListener('DOMContentLoaded', function() {
+            const filtroBtns = document.querySelectorAll('.filtro-btn');
+            const seloCards = document.querySelectorAll('.selo-card');
+
+            filtroBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filtroBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const categoria = this.getAttribute('data-categoria');
+
+                    seloCards.forEach(card => {
+                        if (categoria === 'todos' || card.getAttribute('data-categoria') === categoria) {
+                            card.style.display = 'flex';
+                            setTimeout(() => card.classList.remove('hidden'), 10);
+                        } else {
+                            card.classList.add('hidden');
+                            setTimeout(() => card.style.display = 'none', 300);
+                        }
+                    });
+                });
+            });
+
+            // Verifica se há âncora na URL e rola até o selo
+            if (window.location.hash) {
+                const seloAlvo = document.querySelector(window.location.hash);
+                if (seloAlvo) {
+                    setTimeout(() => {
+                        seloAlvo.scrollIntoView({ behavior: 'smooth' });
+                    }, 500);
+                }
+            }
+        });
+
+        // Função para copiar link direto do selo
+        function copiarLinkSelo(seloId) {
+            const link = `${window.location.origin}${window.location.pathname}#selo-${seloId}`;
+            navigator.clipboard.writeText(link).then(() => {
+                alert('✅ Link copiado! Agora você pode compartilhar este selo específico!');
+            });
+        }
+
+        // Efeito especial para sexta-feira 13 🎂
+        const hoje = new Date();
+        if (hoje.getDate() === 13 && hoje.getDay() === 5) { // Sexta-feira 13
+            document.addEventListener('DOMContentLoaded', function() {
+                const header = document.querySelector('.page-header');
+                header.style.background = 'linear-gradient(135deg, #8B008B 0%, #4B0082 100%)';
+                header.innerHTML += '<div style="margin-top: 15px;">🎂 <strong>FELIZ ANIVERSÁRIO! </strong> Que seu dia seja tão especial quanto você! ✨</div>';
+            });
+        }
+    </script>
+}

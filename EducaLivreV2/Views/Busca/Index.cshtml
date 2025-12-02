@@ -1,0 +1,75 @@
+﻿@model List<EducaLivreV2.Models.Instituicao>
+
+@{
+    ViewData["Title"] = "Resultados da Busca";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">
+        @if (!string.IsNullOrEmpty(ViewData["TermoBuscado"]?.ToString()))
+        {
+            <span>Resultados para: <span class="text-primary">"@ViewData["TermoBuscado"]"</span></span>
+        }
+        else
+        {
+            <span>Todas as Instituições</span>
+        }
+    </h2>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-warning">
+            <i class="fas fa-exclamation-triangle"></i>
+            Nenhuma instituição encontrada.
+            @if (!string.IsNullOrEmpty(ViewData["TermoBuscado"]?.ToString()))
+            {
+                <span>Tente buscar por outros termos.</span>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var instituicao in Model)
+            {
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 shadow-sm instituicao-card">
+                        <div class="row g-0">
+                            <!-- Imagem -->
+                            <div class="col-md-4">
+                                <img src="@instituicao.ImagemPrincipal"
+                                     alt="@instituicao.nome"
+                                     class="img-fluid rounded-start h-100"
+                                     style="object-fit: cover;">
+                            </div>
+
+                            <!-- Informações -->
+                            <div class="col-md-8">
+                                <div class="card-body d-flex flex-column h-100">
+                                    <h5 class="card-title">@instituicao.nome</h5>
+
+                                    <p class="card-text text-muted">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        @instituicao.cidade, @instituicao.estado
+                                    </p>
+
+                                    <div class="mb-2">
+                                        @Html.Raw(instituicao.NotaLivros)
+                                        <span class="ms-2">@instituicao.NotaFormatada</span>
+                                    </div>
+
+                                    <div class="mt-auto">
+                                        <a href="@Url.Action("Detalhes", "Busca", new { id = instituicao.id })"
+                                           class="btn btn-primary btn-sm">
+                                            <i class="fas fa-info-circle"></i> Ver Detalhes
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

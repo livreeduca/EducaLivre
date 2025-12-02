@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="CodexinoRegistro.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.0544998"
+     inkscape:cx="435.27748"
+     inkscape:cy="437.64827"
+     inkscape:window-width="1920"
+     inkscape:window-height="1018"
+     inkscape:window-x="1272"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer6" />
+  <defs
+     id="defs2">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 148.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="210 : 148.5 : 1"
+       inkscape:persp3d-origin="105 : 99 : 1"
+       id="perspective11947" />
+  </defs>
+  <g
+     inkscape:groupmode="layer"
+     id="layer10"
+     inkscape:label="AntebraçoEsquerdo">
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-opacity:1"
+       id="rect12522-3"
+       width="3.1935484"
+       height="21.734838"
+       x="-74.612938"
+       y="175.28149"
+       transform="matrix(-0.86575183,0.50047354,0.50047354,0.86575183,0,0)" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer12"
+     inkscape:label="BraçoEsquerdo">
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-opacity:1"
+       id="rect12524-5"
+       width="3.3260479"
+       height="30.887678"
+       x="-18.501131"
+       y="209.01167"
+       transform="matrix(-0.69710823,0.71696591,0.71696591,0.69710823,0,0)" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer8"
+     inkscape:label="MãoEsquerda"
+     style="display:inline">
+    <g
+       id="g12740-9"
+       transform="matrix(-0.66539444,-0.74649195,-0.74649195,0.66539444,316.99757,70.932821)">
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.154552;stroke-opacity:1"
+         id="path12736-6"
+         sodipodi:type="arc"
+         sodipodi:cx="28.027403"
+         sodipodi:cy="155.52406"
+         sodipodi:rx="2.2344756"
+         sodipodi:ry="4.2694001"
+         sodipodi:start="0"
+         sodipodi:end="6.2365381"
+         sodipodi:open="true"
+         sodipodi:arc-type="arc"
+         d="m 30.261878,155.52406 a 2.2344756,4.2694001 0 0 1 -2.208418,4.26911 2.2344756,4.2694001 0 0 1 -2.259925,-4.16954 2.2344756,4.2694001 0 0 1 2.15571,-4.36635 2.2344756,4.2694001 0 0 1 2.310203,4.0677" />
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.221781;stroke-opacity:1"
+         id="path12526-5"
+         sodipodi:type="arc"
+         sodipodi:cx="21.665186"
+         sodipodi:cy="155.52406"
+         sodipodi:rx="5.3642225"
+         sodipodi:ry="6.250473"
+         sodipodi:start="0"
+         sodipodi:end="6.2365381"
+         sodipodi:open="true"
+         sodipodi:arc-type="arc"
+         d="m 27.029408,155.52406 a 5.3642225,6.250473 0 0 1 -5.301667,6.25005 5.3642225,6.250473 0 0 1 -5.425319,-6.10428 5.3642225,6.250473 0 0 1 5.175133,-6.39242 5.3642225,6.250473 0 0 1 5.546018,5.95519" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer17"
+     inkscape:label="CanelaEsquerda" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer15"
+     inkscape:label="PéEsquerdo" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer19"
+     inkscape:label="CoxaEsquerda" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer16"
+     inkscape:label="CanelaDireita" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer14"
+     inkscape:label="PéDireito" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer18"
+     inkscape:label="CoxaDireita" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer20"
+     inkscape:label="Capa" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="Corpo"
+     style="display:inline"
+     transform="matrix(1.6506906,0,0,1.241142,-31.570738,-11.138557)">
+    <path
+       id="rect6558"
+       style="fill:#7f0e9a;stroke-width:0.172053;fill-opacity:1"
+       d="M 115.57686,46.19086 H 39.85509 v 3.136361 h 75.72177 z"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       id="rect8071"
+       style="fill:#f4f4a7;stroke-width:0.220875"
+       d="M 113.37573,47.759041 H 40.59032 L 28.82653,58.461763 h 84.5492 z"
+       sodipodi:nodetypes="ccccc" />
+    <rect
+       style="fill:#7f0e9a;fill-opacity:1;stroke-width:0.21417"
+       id="rect5766"
+       width="71.118263"
+       height="128.09677"
+       x="-99.488304"
+       y="56.774193"
+       transform="scale(-1,1)" />
+    <path
+       id="rect4055"
+       style="fill:#7f0e9a;stroke-width:0.220875;fill-opacity:1"
+       d="M 115.57686,46.19086 99.488294,56.774193 V 184.87096 l 16.088566,-10.58333 z"
+       sodipodi:nodetypes="ccccc" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer13"
+     inkscape:label="BraçoDireito"
+     style="display:inline">
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-opacity:1"
+       id="rect12524"
+       width="3.3260479"
+       height="30.887678"
+       x="10.249899"
+       y="186.2773"
+       transform="matrix(-0.69710823,0.71696591,0.71696591,0.69710823,0,0)" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer9"
+     inkscape:label="MãoDireita">
+    <g
+       id="g12740"
+       transform="matrix(-0.66539444,-0.74649195,-0.74649195,0.66539444,280.6552,75.698013)">
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.154552;stroke-opacity:1"
+         id="path12736"
+         sodipodi:type="arc"
+         sodipodi:cx="28.027403"
+         sodipodi:cy="155.52406"
+         sodipodi:rx="2.2344756"
+         sodipodi:ry="4.2694001"
+         sodipodi:start="0"
+         sodipodi:end="6.2365381"
+         sodipodi:open="true"
+         sodipodi:arc-type="arc"
+         d="m 30.261878,155.52406 a 2.2344756,4.2694001 0 0 1 -2.208418,4.26911 2.2344756,4.2694001 0 0 1 -2.259925,-4.16954 2.2344756,4.2694001 0 0 1 2.15571,-4.36635 2.2344756,4.2694001 0 0 1 2.310203,4.0677" />
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.221781;stroke-opacity:1"
+         id="path12526"
+         sodipodi:type="arc"
+         sodipodi:cx="21.665186"
+         sodipodi:cy="155.52406"
+         sodipodi:rx="5.3642225"
+         sodipodi:ry="6.250473"
+         sodipodi:start="0"
+         sodipodi:end="6.2365381"
+         sodipodi:open="true"
+         sodipodi:arc-type="arc"
+         d="m 27.029408,155.52406 a 5.3642225,6.250473 0 0 1 -5.301667,6.25005 5.3642225,6.250473 0 0 1 -5.425319,-6.10428 5.3642225,6.250473 0 0 1 5.175133,-6.39242 5.3642225,6.250473 0 0 1 5.546018,5.95519" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer11"
+     inkscape:label="AntebraçoDireito">
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-opacity:1"
+       id="rect12522"
+       width="3.1935484"
+       height="21.734838"
+       x="-166.08142"
+       y="66.743057"
+       transform="matrix(-0.93916874,-0.34345609,-0.34345609,0.93916874,0,0)" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="OlhoEsquerdo"
+     style="display:inline">
+    <ellipse
+       style="fill:#fefef4;fill-opacity:1;stroke:#000000;stroke-width:0.412994;stroke-opacity:1"
+       id="path11098"
+       ry="11.676907"
+       rx="8.4554329"
+       cy="95.879539"
+       cx="-159.78233"
+       transform="scale(-1,1)" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="OlhoDireito"
+     style="display:inline">
+    <ellipse
+       style="fill:#fefef4;fill-opacity:1;stroke:#000000;stroke-width:0.441691;stroke-opacity:1"
+       id="path11098-4"
+       ry="11.37147"
+       rx="8.4410839"
+       cy="101.66129"
+       cx="-141.88704"
+       inkscape:label="OlhoDireito"
+       transform="scale(-1,1)" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer6"
+     inkscape:label="PupilaEsquerda">
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-opacity:1"
+       id="path12238"
+       sodipodi:type="arc"
+       sodipodi:cx="-162.38387"
+       sodipodi:cy="98.388641"
+       sodipodi:rx="4.0806451"
+       sodipodi:ry="4.0806451"
+       sodipodi:start="0"
+       sodipodi:end="6.2365381"
+       sodipodi:arc-type="arc"
+       d="m -158.30322,98.388641 a 4.0806451,4.0806451 0 0 1 -4.03306,4.080369 4.0806451,4.0806451 0 0 1 -4.12712,-3.985202 4.0806451,4.0806451 0 0 1 3.9368,-4.173315 4.0806451,4.0806451 0 0 1 4.21894,3.887867"
+       sodipodi:open="true"
+       transform="scale(-1,1)" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer7"
+     inkscape:label="PupilaDireita">
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-opacity:1"
+       id="path12238-6"
+       sodipodi:type="arc"
+       sodipodi:cx="-144.21358"
+       sodipodi:cy="104.30589"
+       sodipodi:rx="4.0806451"
+       sodipodi:ry="4.0806451"
+       sodipodi:start="0"
+       sodipodi:end="6.2365381"
+       sodipodi:arc-type="arc"
+       d="m -140.13293,104.30589 a 4.0806451,4.0806451 0 0 1 -4.03306,4.08037 4.0806451,4.0806451 0 0 1 -4.12712,-3.9852 4.0806451,4.0806451 0 0 1 3.9368,-4.17332 4.0806451,4.0806451 0 0 1 4.21894,3.88787"
+       sodipodi:open="true"
+       transform="scale(-1,1)" />
+  </g>
+</svg>

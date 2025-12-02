@@ -1,0 +1,580 @@
+/* ===== RESET E ESTRUTURA BÁSICA ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* ===== NAVBAR 100% VISÍVEL ===== */
+.main-navbar {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 70%, #6a11cb 100%) !important;
+    padding: 0.8rem 0;
+    box-shadow: 0 2px 20px rgba(102, 126, 234, 0.3);
+    position: relative;
+}
+
+    /* Efeito sutil de brilho */
+    .main-navbar::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #ffffff, transparent);
+        opacity: 0.3;
+    }
+
+.navbar-brand {
+    margin-right: 2rem;
+}
+
+    .navbar-brand .logo {
+        height: 40px;
+        width: auto;
+        filter: brightness(0) invert(1); /* Torna a logo branca */
+    }
+
+.navbar-nav .nav-link {
+    color: #ffffff !important; /* BRANCO puro */
+    font-weight: 500;
+    padding: 0.6rem 1rem !important;
+    margin: 0 0.2rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+    .navbar-nav .nav-link:hover {
+        color: #ffffff !important;
+        background: rgba(52, 152, 219, 0.3); /* Azul claro no hover */
+        text-decoration: none;
+    }
+
+/* Botão Entrar/Cadastrar - DESTACADO */
+.btn-outline-light {
+    border: 2px solid #ffffff !important;
+    color: #ffffff !important;
+    background: transparent !important;
+    font-weight: 600;
+    padding: 0.5rem 1.5rem !important;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+    .btn-outline-light:hover {
+        background: #ffffff !important;
+        color: #2c3e50 !important; /* Texto escuro no hover */
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+/* Navbar toggle mobile */
+.navbar-toggler {
+    border: 2px solid #ffffff !important;
+    padding: 0.25rem 0.5rem;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Header abaixo da navbar */
+.main-header {
+    background: #ecf0f1;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #bdc3c7;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    background: white;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.dropdown-item {
+    color: #2c3e50 !important;
+    padding: 0.7rem 1.5rem;
+}
+
+    .dropdown-item:hover {
+        background: #3498db !important;
+        color: white !important;
+    }
+
+/* ===== HEADER COM BUSCA ===== */
+.main-header {
+    background: #34495e;
+    padding: 2rem 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-section {
+    width: 100%;
+    max-width: 600px;
+}
+
+.search-container {
+    display: flex;
+    background: white;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-button {
+    background: #e74c3c;
+    border: none;
+    padding: 12px 20px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+    .search-button:hover {
+        background: #c0392b;
+    }
+
+.search-icon {
+    font-size: 1.1rem;
+}
+
+/* ===== CARDS DE INSTITUIÇÕES ===== */
+.cards {
+    padding: 4rem 0;
+}
+
+    .cards h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #2c3e50;
+        font-size: 2.2rem;
+    }
+
+.cards-container-home {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.instituicao-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+    display: flex;
+    min-height: 180px;
+}
+    .instituicao-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+.imagem-escola {
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.info-escola {
+    flex: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card-top {
+    margin-bottom: 1rem;
+}
+
+.nome-escola {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.localizacao {
+    color: #7f8c8d;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* ===== SISTEMA DE NOTA COM LIVRINHOS ===== */
+.nota-livros {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.livrinho {
+    color: #3498db;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+    .livrinho.cheio {
+        color: #2c5aa0;
+    }
+
+    .livrinho.vazio {
+        color: #bdc3c7;
+    }
+
+.nota-numerica {
+    font-size: 1rem;
+    color: #2c5aa0;
+    font-weight: 600;
+    margin-left: 0.5rem;
+}
+
+/* ===== SELOS COMPACTOS ===== */
+.selo {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.selo-item img {
+    width: 28px;
+    height: 28px;
+    transition: transform 0.2s ease;
+}
+
+.selo-item:hover img {
+    transform: scale(1.15);
+}
+
+/* ===== BOTÃO DETALHES ===== */
+.btn-detalhes {
+    background: #27ae60;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+    .btn-detalhes:hover {
+        background: #219653;
+        color: white;
+        text-decoration: none;
+        transform: translateY(-1px);
+    }
+
+/* ===== AVALIAÇÕES RECENTES ===== */
+.avaliacoes-recentes {
+    padding: 3rem 0;
+    background: #f8f9fa;
+}
+
+    .avaliacoes-recentes h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #2c3e50;
+    }
+
+.avaliacoes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.avaliacao-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.avaliacao-conteudo {
+    flex: 1;
+}
+
+.topo {
+    display: flex;
+    justify-content: between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.tag {
+    background: #e74c3c;
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.comentario {
+    color: #555;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
+.escola {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+/* ===== MENSAGEM NENHUMA INSTITUIÇÃO ===== */
+.nenhuma-instituicao {
+    text-align: center;
+    padding: 3rem;
+    color: #666;
+    grid-column: 1 / -1;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background: #2c3e50;
+    color: white;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .instituicao-card {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .imagem-escola {
+        width: 100%;
+        height: 160px;
+    }
+
+    .card-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+
+    .btn-detalhes {
+        align-self: stretch;
+        text-align: center;
+    }
+    /* ===== ESTILOS PARA PÁGINA DE BUSCA ===== */
+    .instituicao-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid #dee2e6;
+    }
+
+        .instituicao-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+    /* Carousel personalizado */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: rgba(0,0,0,0.5);
+        border-radius: 50%;
+        padding: 15px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+        .instituicao-card .col-md-4 {
+            height: 200px;
+        }
+
+        .instituicao-card .col-md-8 {
+            padding: 1rem;
+        }
+    }
+    /* Codexino em telas menores */
+    @media (max-width: 768px) {
+        .codexino-scroll-top {
+            width: 60px !important;
+            height: 60px !important;
+            bottom: 15px !important;
+            right: 15px !important;
+        }
+
+        /* Olhos menores em mobile */
+        .codexino-svg [id*="path12238"] {
+            transform-origin: center;
+            transform-box: fill-box;
+        }
+    }
+    /* Avatar do perfil */
+    /* Estilos para página de perfil */
+    .avatar-placeholder {
+        width: 120px;
+        height: 120px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 50%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 40px;
+        color: white;
+        font-weight: bold;
+        box-shadow: 0 4px 15px rgba(106, 17, 203, 0.3);
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #6a11cb;
+        line-height: 1;
+    }
+
+    .stat-label {
+        color: #6c757d;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 0.5rem;
+    }
+
+    /* Cards do perfil */
+    .profile-card {
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+
+    /* Estilos para o Painel Admin e Perfil */
+    .stat-card {
+        border: none;
+        border-radius: 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        overflow: hidden;
+    }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .stat-card.bg-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .stat-card.bg-success {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+
+        .stat-card.bg-warning {
+            background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+        }
+
+        .stat-card.bg-info {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+    .avatar-perfil {
+        width: 120px;
+        height: 120px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 50%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 48px;
+        color: white;
+        font-weight: bold;
+        box-shadow: 0 8px 25px rgba(106, 17, 203, 0.3);
+    }
+
+    /* Animações */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .card {
+        animation: fadeIn 0.5s ease;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+        .avatar-perfil {
+            width: 80px;
+            height: 80px;
+            font-size: 32px;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+        }
+    }
+
+}

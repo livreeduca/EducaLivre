@@ -1,0 +1,115 @@
+﻿@model EducaLivreV2.Models.Instituicao
+
+@{
+    ViewData["Title"] = Model.nome;
+}
+
+<div class="container mt-4">
+    <!-- Botão Voltar -->
+    <a href="@Url.Action("Index", "Home")" class="btn btn-outline-secondary mb-4">
+        <i class="fas fa-home"></i> Voltar para Home
+    </a>
+
+    <div class="card shadow">
+        <!-- Galeria de Fotos -->
+        <div id="instituicaoCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                @foreach (var img in Model.TodasImagens.Select((value, i) => new { i, value }))
+                {
+                    <div class="carousel-item @(img.i == 0 ? "active" : "")">
+                        <img src="@img.value" class="d-block w-100" alt="Foto @(img.i + 1) da @Model.nome" style="height: 400px; object-fit: cover;">
+                    </div>
+                }
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#instituicaoCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#instituicaoCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+
+        <div class="card-body">
+            <h1 class="card-title">@Model.nome</h1>
+
+            <!-- Informações Básicas -->
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <p><strong><i class="fas fa-star"></i> Avaliação:</strong> @Model.NotaFormatada</p>
+                    <p>
+                        <strong><i class="fas fa-map-marker-alt"></i> Localização:</strong>
+                        @Model.cidade, @Model.estado
+                    </p>
+                    @if (!string.IsNullOrEmpty(Model.bairro))
+                    {
+                        <p><strong>Bairro:</strong> @Model.bairro</p>
+                    }
+                </div>
+                <div class="col-md-6">
+                    @if (!string.IsNullOrEmpty(Model.telefone))
+                    {
+                        <p><strong><i class="fas fa-phone"></i> Telefone:</strong> @Model.telefone</p>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.email))
+                    {
+                        <p><strong><i class="fas fa-envelope"></i> Email:</strong> @Model.email</p>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.website))
+                    {
+                        <p>
+                            <strong><i class="fas fa-globe"></i> Site:</strong>
+                            <a href="@Model.website" target="_blank">@Model.website</a>
+                        </p>
+                    }
+                </div>
+            </div>
+
+            <!-- Descrição -->
+            @if (!string.IsNullOrEmpty(Model.descricao))
+            {
+                <div class="mb-4">
+                    <h4><i class="fas fa-info-circle"></i> Sobre a Instituição</h4>
+                    <p class="text-justify">@Html.Raw(Model.descricao.Replace("\r\n", "<br>"))</p>
+                </div>
+            }
+
+            <!-- Endereço Completo -->
+            <div class="mb-4">
+                <h4><i class="fas fa-map"></i> Endereço Completo</h4>
+                <p>
+                    @if (!string.IsNullOrEmpty(Model.rua))
+                    {
+                        <span>@Model.rua</span>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.numero))
+                    {
+                        <span>, @Model.numero</span>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.bairro))
+                    {
+                        <span> - @Model.bairro</span>
+                    }
+                    <br>
+                    @Model.cidade - @Model.estado
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- No final da página de detalhes -->
+<div class="text-center mt-5">
+    <small class="text-muted">
+        <i class="fas fa-eye"></i>
+        Dica: O Codexino está de olho em você! 👀
+    </small>
+</div>
+
+@section Scripts {
+    <script>
+        // Inicializar carousel
+        document.addEventListener('DOMContentLoaded', function() {
+            var carousel = new bootstrap.Carousel(document.getElementById('instituicaoCarousel'));
+        });
+    </script>
+}

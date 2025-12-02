@@ -1,0 +1,150 @@
+﻿@{
+    ViewData["Title"] = "Entrar / Cadastrar";
+    Layout = "_Layout";
+}
+
+@section Styles {
+    <style>
+        .auth-container {
+            max-width: 400px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .auth-tab {
+            flex: 1;
+            padding: 0.75rem;
+            text-align: center;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+            .auth-tab.active {
+                border-bottom-color: #007bff;
+                color: #007bff;
+            }
+
+        .auth-form {
+            display: none;
+        }
+
+            .auth-form.active {
+                display: block;
+            }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ced4da;
+            border-radius: 0.375rem;
+            transition: border-color 0.15s ease-in-out;
+        }
+
+        .btn-auth {
+            width: 100%;
+            padding: 0.75rem;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.15s ease-in-out;
+        }
+
+            .btn-auth:hover {
+                background: #0056b3;
+            }
+    </style>
+}
+
+<div class="container">
+    <div class="auth-container">
+        <h2 class="text-center mb-4">Acesse sua conta</h2>
+
+        <div class="auth-tabs">
+            <button class="auth-tab active" data-tab="login">Entrar</button>
+            <button class="auth-tab" data-tab="register">Cadastrar</button>
+        </div>
+
+        <!-- FORMULÁRIO DE LOGIN -->
+        <form method="post" asp-action="Login" class="auth-form active" id="loginForm">
+            <div class="form-group">
+                <input type="email" name="email" class="form-control" placeholder="E-mail" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="senha" class="form-control" placeholder="Senha" required>
+            </div>
+            <button type="submit" class="btn-auth">Entrar</button>
+
+            <div class="text-center mt-3">
+                <a href="#" class="text-muted">Esqueci minha senha</a>
+            </div>
+        </form>
+
+        <!-- FORMULÁRIO DE CADASTRO -->
+        <form method="post" asp-action="Register" class="auth-form" id="registerForm">
+            <div class="form-group">
+                <input type="text" name="nome" class="form-control" placeholder="Nome completo" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" class="form-control" placeholder="E-mail" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="senha" class="form-control" placeholder="Senha" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="confirmarSenha" class="form-control" placeholder="Confirmar senha" required>
+            </div>
+            <button type="submit" class="btn-auth">Cadastrar</button>
+
+            <div class="mt-3">
+                <small class="text-muted">
+                    Ao cadastrar, você concorda com nossos
+                    <a asp-controller="Home" asp-action="Privacy">Termos de Uso</a>
+                </small>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.auth-tab');
+            const forms = document.querySelectorAll('.auth-form');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabName = this.getAttribute('data-tab');
+
+                    // Ativa tab clicada
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Mostra form correspondente
+                    forms.forEach(form => {
+                        form.classList.remove('active');
+                        if (form.id === tabName + 'Form') {
+                            form.classList.add('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+}

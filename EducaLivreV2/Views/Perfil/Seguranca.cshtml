@@ -1,0 +1,78 @@
+﻿@{
+    ViewData["Title"] = "Segurança da Conta";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <!-- Mensagens -->
+            @if (TempData["MensagemSucesso"] != null)
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="fas fa-check-circle"></i> @TempData["MensagemSucesso"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            }
+
+            @if (TempData["MensagemErro"] != null)
+            {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fas fa-exclamation-circle"></i> @TempData["MensagemErro"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            }
+
+            <div class="card shadow-sm">
+                <div class="card-header bg-warning text-white">
+                    <h5 class="mb-0"><i class="fas fa-shield-alt"></i> Alterar Senha</h5>
+                </div>
+                <div class="card-body">
+                    <form asp-action="AlterarSenha" method="post">
+                        <div class="mb-3">
+                            <label for="senhaAtual" class="form-label">Senha Atual *</label>
+                            <input type="password" id="senhaAtual" name="senhaAtual" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="novaSenha" class="form-label">Nova Senha *</label>
+                            <input type="password" id="novaSenha" name="novaSenha" class="form-control" required minlength="6">
+                            <div class="form-text">Mínimo 6 caracteres</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="confirmarSenha" class="form-label">Confirmar Nova Senha *</label>
+                            <input type="password" id="confirmarSenha" name="confirmarSenha" class="form-control" required>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-key"></i> Alterar Senha
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="text-center mt-3">
+                <a href="@Url.Action("Index", "Perfil")" class="btn btn-outline-primary">
+                    <i class="fas fa-arrow-left"></i> Voltar para o Perfil
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const novaSenha = document.getElementById('novaSenha').value;
+            const confirmarSenha = document.getElementById('confirmarSenha').value;
+
+            if (novaSenha !== confirmarSenha) {
+                e.preventDefault();
+                alert('As senhas não coincidem!');
+                return false;
+            }
+        });
+    </script>
+}

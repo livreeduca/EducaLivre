@@ -1,0 +1,94 @@
+﻿/* ESTILOS DA PÁGINA SOBRE NÓS */
+.about-wrapper {
+    background-color: #f8f6f6c2;
+    min-height: calc(100vh - 200px);
+    padding: 2rem 0;
+}
+
+.sobre-nos-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.sobre-box {
+    background-color: #94bdf4;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    flex: 1;
+    color: #000;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+    .sobre-box h2 {
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        text-align: center;
+        color: #0a2f52;
+    }
+
+    .sobre-box h3 {
+        font-size: 1.2rem;
+        margin-top: 1.5rem;
+        text-align: center;
+        color: #0a2f52;
+    }
+
+    .sobre-box p {
+        text-align: left;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+
+.email-contato {
+    text-align: center;
+}
+
+.sobre-box a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+    .sobre-box a:hover {
+        color: #5272ff;
+        text-decoration: underline;
+    }
+
+.sobre-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+    .sobre-logo img {
+        max-width: 220px;
+        width: 100%;
+        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    }
+
+/* Responsivo: lado a lado em telas maiores */
+@media (min-width: 768px) {
+    .sobre-nos-container {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .sobre-box {
+        text-align: left;
+    }
+
+        .sobre-box h2,
+        .sobre-box h3,
+        .email-contato {
+            text-align: left;
+        }
+}

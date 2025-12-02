@@ -1,0 +1,543 @@
+﻿@using EducaLivreV2.Services
+@inject AuthService AuthService
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ..:: Educa Livre ::..</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/codexino.css" asp-append-version="true" />
+    @await RenderSectionAsync("Styles", required: false)
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+    <!-- NAVBAR PRIMEIRO -->
+    <nav class="navbar navbar-expand-sm navbar-dark main-navbar">
+        <div class="container">
+            <!-- LOGO À ESQUERDA -->
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                <img src="/assets/Logo.svg" alt="EducaLivre" class="logo">
+            </a>
+
+            <!-- Botão toggle para mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Conteúdo colapsável -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <!-- Links à esquerda (ao lado da logo) -->
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Selo" asp-action="Index">Selos</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Contato">Contato</a>     
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="About">Sobre Nós</a></li>
+                </ul>
+
+                <!-- Menu dinâmico à direita -->
+                <ul class="navbar-nav ms-auto">
+                    <!-- ms-auto empurra para direita -->
+                    @if (AuthService.IsLoggedIn())
+                    {
+                        <!-- USUÁRIO LOGADO -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                👤 @AuthService.GetUserName()
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- MOSTRAR PAINEL ADMIN APENAS PARA ADMINS -->
+                                @if (AuthService.IsAdmin())
+                                {
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="Home" asp-action="PainelAdmin">
+                                            <i class="fa fa-cog"></i> Painel Admin
+                                        </a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                }
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fa fa-user"></i> Meu Perfil
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Home" asp-action="Contato">
+                                        <i class="fa fa-envelope"></i> Contato
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Auth" asp-action="Logout">
+                                        <i class="fa fa-sign-out"></i> Sair
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+                        <!-- USUÁRIO NÃO LOGADO - APENAS UM BOTÃO -->
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-outline-light btn-sm mx-1"
+                               asp-controller="Auth"
+                               asp-action="Login">
+                                <i class="fa fa-user"></i> Entrar / Cadastrar
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER COM BUSCA FUNCIONAL -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="search-section">
+                    <form method="get" asp-controller="Busca" asp-action="Index" class="search-container">
+                        <input type="text"
+                               name="q"  
+                        placeholder="Encontre uma instituição..."
+                        class="search-input"
+                        value="@Context.Request.Query["q"]"
+                        required>
+                        <button type="submit" class="search-button">
+                            <i class="fas fa-search search-icon"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - EducaLivreV2 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    <!-- Botão Voltar ao Topo - Codexino -->
+    <div id="codexinoScrollTop" class="codexino-scroll-top">
+        <!-- SVG inline para poder animar -->
+        <svg class="codexino-svg" viewBox="0 0 210 297">
+            <g inkscape:groupmode="layer"
+               id="layer10"
+               inkscape:label="AntebraçoEsquerdo">
+                <rect style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-opacity:1"
+                      id="rect12522-3"
+                      width="3.1935484"
+                      height="21.734838"
+                      x="105.22945"
+                      y="71.31826"
+                      transform="rotate(30.031334)" />
+            </g>
+            <g inkscape:groupmode="layer"
+               id="layer12"
+               inkscape:label="BraçoEsquerdo">
+                <rect style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-opacity:1"
+                      id="rect12524-5"
+                      width="3.3260479"
+                      height="30.887678"
+                      x="126.30897"
+                      y="60.076542"
+                      transform="rotate(45.804545)" />
+            </g>
+            <g inkscape:groupmode="layer"
+               id="layer8"
+               inkscape:label="MãoEsquerda"
+               style="display:inline">
+                <g id="g12740-9"
+                   transform="rotate(-48.287407,24.490253,157.35257)">
+                    <path style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.154552;stroke-opacity:1"
+                          id="path12736-6"
+                          sodipodi:type="arc"
+                          sodipodi:cx="28.027403"
+                          sodipodi:cy="155.52406"
+                          sodipodi:rx="2.2344756"
+                          sodipodi:ry="4.2694001"
+                          sodipodi:start="0"
+                          sodipodi:end="6.2365381"
+                          sodipodi:open="true"
+                          sodipodi:arc-type="arc"
+                          d="m 30.261878,155.52406 a 2.2344756,4.2694001 0 0 1 -2.208418,4.26911 2.2344756,4.2694001 0 0 1 -2.259925,-4.16954 2.2344756,4.2694001 0 0 1 2.15571,-4.36635 2.2344756,4.2694001 0 0 1 2.310203,4.0677" />
+                    <path style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.221781;stroke-opacity:1"
+                          id="path12526-5"
+                          sodipodi:type="arc"
+                          sodipodi:cx="21.665186"
+                          sodipodi:cy="155.52406"
+                          sodipodi:rx="5.3642225"
+                          sodipodi:ry="6.250473"
+                          sodipodi:start="0"
+                          sodipodi:end="6.2365381"
+                          sodipodi:open="true"
+                          sodipodi:arc-type="arc"
+                          d="m 27.029408,155.52406 a 5.3642225,6.250473 0 0 1 -5.301667,6.25005 5.3642225,6.250473 0 0 1 -5.425319,-6.10428 5.3642225,6.250473 0 0 1 5.175133,-6.39242 5.3642225,6.250473 0 0 1 5.546018,5.95519" />
+                </g>
+            </g>
+            <g inkscape:groupmode="layer"
+               id="layer17"
+               inkscape:label="CanelaEsquerda">
+                <rect style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.264999"
+                      id="rect1860"
+                      width="3.2385094"
+                      height="21.467743"
+                      x="13.966772"
+                      y="210.89938"
+                      transform="rotate(-13.977262)" />
+            </g>
+            <g inkscape:groupmode="layer"
+               id="layer15"
+               inkscape:label="PéEsquerdo">
+                <g id="g1759-1"
+                   style="display:inline"
+                   transform="translate(-8.0786306,11.503123)">
+                    <path style="fill:#ffffff;stroke:#000000;stroke-width:0.264999"
+                          id="path1755-9"
+                          sodipodi:type="arc"
+                          sodipodi:cx="78.1325"
+                          sodipodi:cy="212.3924"
+                          sodipodi:rx="5.5887098"
+                          sodipodi:ry="4.6129031"
+                          sodipodi:start="0"
+                          sodipodi:end="6.2365381"
+                          sodipodi:open="true"
+                          sodipodi:arc-type="arc"
+                          d="m 83.72121,212.3924 a 5.5887098,4.6129031 0 0 1 -5.523537,4.61258 5.5887098,4.6129031 0 0 1 -5.652363,-4.50501 5.5887098,4.6129031 0 0 1 5.391706,-4.71766 5.5887098,4.6129031 0 0 1 5.778114,4.39498" />
+                    <path style="fill:#ffffff;stroke:#000000;stroke-width:0.264999"
+                          id="path1753-5"
+                          sodipodi:type="arc"
+                          sodipodi:cx="32.730999"
+                          sodipodi:cy="229.01114"
+                          sodipodi:rx="11.858325"
+                          sodipodi:ry="5.8548388"
+                          sodipodi:start="0"
+                          sodipodi:end="6.2365381"
+                          sodipodi:open="true"
+                          sodipodi:arc-type="arc"
+                          d="m 44.589324,229.01114 a 11.858325,5.8548388 0 0 1 -11.720039,5.85444 11.858325,5.8548388 0 0 1 -11.993386,-5.7179 11.858325,5.8548388 0 0 1 11.440316,-5.9878 11.858325,5.8548388 0 0 1 12.26021,5.57825"
+                          transform="rotate(-10.894526)" />
+                </g>
+            </g>
+            <g inkscape:groupmode="layer"
+               id="layer19"
+               inkscape:label="CoxaEsquerda">
+                <rect style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.240022"
+                      id="rect1858"
+                      width="4.4604611"
+                      height="27.702394"
+                      x="116.31127"
+                      y="148.0862"
+                      transform="rotate(15.774581)" />
+            </g>
+            <g inkscape:groupmode="layer"
+               id="layer16"
+               inkscape:label="CanelaDireita">
+                <rect style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.308018"
+                      id="rect1860-6"
+                      width="4.2351189"
+                      height="22.178305"
+                      x="3.480413"
+                      y="225.12419"
+                      transform="matrix(0.9729903,-0.23084602,0.3910427,0.92037254,0,0)" />
+            </g>
+            <g inkscape:groupmode="layer"
+               id="layer14"
+               inkscape:label="PéDireito">
+                <g id="g1759"
+                   style="display:inline"
+                   transform="translate(23.774194,15.435484)">
+                    <path style="fill:#ffffff;stroke:#000000;stroke-width:0.264999"
+                          id="path1755"
+                          sodipodi:type="arc"
+                          sodipodi:cx="78.1325"
+                          sodipodi:cy="212.3924"
+                          sodipodi:rx="5.5887098"
+                          sodipodi:ry="4.6129031"
+                          sodipodi:start="0"
+                          sodipodi:end="6.2365381"
+                          sodipodi:open="true"
+                          sodipodi:arc-type="arc"
+                          d="m 83.72121,212.3924 a 5.5887098,4.6129031 0 0 1 -5.523537,4.61258 5.5887098,4.6129031 0 0 1 -5.652363,-4.50501 5.5887098,4.6129031 0 0 1 5.391706,-4.71766 5.5887098,4.6129031 0 0 1 5.778114,4.39498" />
+                    <path style="fill:#ffffff;stroke:#000000;stroke-width:0.264999"
+                          id="path1753"
+                          sodipodi:type="arc"
+                          sodipodi:cx="32.730999"
+                          sodipodi:cy="229.01114"
+                          sodipodi:rx="11.858325"
+                          sodipodi:ry="5.8548388"
+                          sodipodi:start="0"
+                          sodipodi:end="6.2365381"
+                          sodipodi:open="true"
+                          sodipodi:arc-type="arc"
+                          d="m 44.589324,229.01114 a 11.858325,5.8548388 0 0 1 -11.720039,5.85444 11.858325,5.8548388 0 0 1 -11.993386,-5.7179 11.858325,5.8548388 0 0 1 11.440316,-5.9878 11.858325,5.8548388 0 0 1 12.26021,5.57825"
+                          transform="rotate(-10.894526)" />
+                </g>
+            </g>
+            <g inkscape:groupmode="layer"
+               id="layer18"
+               inkscape:label="CoxaDireita">
+                <rect style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.240022"
+                      id="rect1858-8"
+                      width="4.4604611"
+                      height="27.702394"
+                      x="145.40317"
+                      y="145.6667"
+                      transform="rotate(16.038075)" />
+            </g>
+            <g inkscape:groupmode="layer"
+               id="layer20"
+               inkscape:label="Capa">
+                <rect style="fill:#ef3efd;fill-opacity:1;stroke:#000000;stroke-width:0.273391"
+                      id="rect1973"
+                      width="38.527782"
+                      height="145.13669"
+                      x="263.26837"
+                      y="-173.54828"
+                      transform="matrix(0.53120773,0.84724161,0.14130608,0.98996596,0,0)" />
+            </g>
+            <g inkscape:groupmode="layer"
+               id="layer5"
+               inkscape:label="Corpo"
+               style="display:inline">
+                <path id="rect6558"
+                      style="fill:#161ead;stroke-width:0.206424"
+                      d="M 48.518815,46.19086 H 157.51612 v 3.136361 H 48.518815 Z"
+                      sodipodi:nodetypes="ccccc"
+                      transform="matrix(0.69471233,0,0,1,14.812196,0)" />
+                <path id="rect8071"
+                      style="fill:#f4f4a7;stroke-width:0.264999"
+                      d="M 51.687222,47.759041 H 156.45779 l 16.93333,10.702722 H 51.687222 Z"
+                      sodipodi:nodetypes="ccccc"
+                      transform="matrix(0.69471233,0,0,1,14.812196,0)" />
+                <rect style="fill:#161ead;fill-opacity:1;stroke-width:0.256954"
+                      id="rect5766"
+                      width="102.37081"
+                      height="128.09677"
+                      x="71.677414"
+                      y="56.774193"
+                      transform="matrix(0.69471233,0,0,1,14.812196,0)" />
+                <path id="rect4055"
+                      style="fill:#161ead;stroke-width:0.264999"
+                      d="M 48.518815,46.19086 71.677418,56.774193 V 184.87096 L 48.518815,174.28763 Z"
+                      sodipodi:nodetypes="ccccc"
+                      transform="matrix(0.69471233,0,0,1,14.812196,0)" />
+            </g>
+            <g inkscape:groupmode="layer"
+               id="layer13"
+               inkscape:label="BraçoDireito"
+               style="display:inline">
+                <rect style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-opacity:1"
+                      id="rect12524"
+                      width="3.3260479"
+                      height="30.887678"
+                      x="155.06"
+                      y="37.342167"
+                      transform="rotate(45.804545)" />
+            </g>
+            <g inkscape:groupmode="layer"
+               id="layer9"
+               inkscape:label="MãoDireita">
+                <g id="g12740"
+                   transform="rotate(-48.287407,47.976912,119.19597)">
+                    <path style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.154552;stroke-opacity:1"
+                          id="path12736"
+                          sodipodi:type="arc"
+                          sodipodi:cx="28.027403"
+                          sodipodi:cy="155.52406"
+                          sodipodi:rx="2.2344756"
+                          sodipodi:ry="4.2694001"
+                          sodipodi:start="0"
+                          sodipodi:end="6.2365381"
+                          sodipodi:open="true"
+                          sodipodi:arc-type="arc"
+                          d="m 30.261878,155.52406 a 2.2344756,4.2694001 0 0 1 -2.208418,4.26911 2.2344756,4.2694001 0 0 1 -2.259925,-4.16954 2.2344756,4.2694001 0 0 1 2.15571,-4.36635 2.2344756,4.2694001 0 0 1 2.310203,4.0677" />
+                    <path style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.221781;stroke-opacity:1"
+                          id="path12526"
+                          sodipodi:type="arc"
+                          sodipodi:cx="21.665186"
+                          sodipodi:cy="155.52406"
+                          sodipodi:rx="5.3642225"
+                          sodipodi:ry="6.250473"
+                          sodipodi:start="0"
+                          sodipodi:end="6.2365381"
+                          sodipodi:open="true"
+                          sodipodi:arc-type="arc"
+                          d="m 27.029408,155.52406 a 5.3642225,6.250473 0 0 1 -5.301667,6.25005 5.3642225,6.250473 0 0 1 -5.425319,-6.10428 5.3642225,6.250473 0 0 1 5.175133,-6.39242 5.3642225,6.250473 0 0 1 5.546018,5.95519" />
+                </g>
+            </g>
+            <g inkscape:groupmode="layer"
+               id="layer11"
+               inkscape:label="AntebraçoDireito">
+                <rect style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-opacity:1"
+                      id="rect12522"
+                      width="3.1935484"
+                      height="21.734838"
+                      x="29.011841"
+                      y="138.0891"
+                      transform="rotate(-20.087578)" />
+            </g>
+            <g inkscape:groupmode="layer"
+               id="layer4"
+               inkscape:label="OlhoEsquerdo"
+               style="display:inline">
+                <ellipse style="fill:#fefef4;fill-opacity:1;stroke:#000000;stroke-width:0.642961;stroke-opacity:1"
+                         id="path11098"
+                         ry="19.581812"
+                         rx="10.616262"
+                         cy="87.670715"
+                         cx="42.765541" />
+            </g>
+            <g inkscape:groupmode="layer"
+               id="layer3"
+               inkscape:label="OlhoDireito"
+               style="display:inline">
+                <ellipse style="fill:#fefef4;fill-opacity:1;stroke:#000000;stroke-width:0.733426;stroke-opacity:1"
+                         id="path11098-4"
+                         ry="21.292942"
+                         rx="12.703754"
+                         cy="99.873947"
+                         cx="66.201408"
+                         inkscape:label="OlhoDireito" />
+            </g>
+            <g inkscape:groupmode="layer"
+               id="layer6"
+               inkscape:label="PupilaEsquerda">
+                <path style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.361219;stroke-opacity:1"
+                      id="path12238"
+                      sodipodi:type="arc"
+                      sodipodi:cx="38.009903"
+                      sodipodi:cy="86.601379"
+                      sodipodi:rx="4.7256513"
+                      sodipodi:ry="6.5470562"
+                      sodipodi:start="0"
+                      sodipodi:end="6.2365381"
+                      sodipodi:arc-type="arc"
+                      d="m 42.735554,86.601379 a 4.7256513,6.5470562 0 0 1 -4.670543,6.546611 4.7256513,6.5470562 0 0 1 -4.779474,-6.393924 4.7256513,6.5470562 0 0 1 4.559071,-6.695736 4.7256513,6.5470562 0 0 1 4.885806,6.237758"
+                      sodipodi:open="true" />
+            </g>
+            <g inkscape:groupmode="layer"
+               id="layer7"
+               inkscape:label="PupilaDireita">
+                <path style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.361219;stroke-opacity:1"
+                      id="path12238-6"
+                      sodipodi:type="arc"
+                      sodipodi:cx="60.564846"
+                      sodipodi:cy="100.035"
+                      sodipodi:rx="4.7256513"
+                      sodipodi:ry="6.5470562"
+                      sodipodi:start="0"
+                      sodipodi:end="6.2365381"
+                      sodipodi:arc-type="arc"
+                      d="m 65.290497,100.035 a 4.7256513,6.5470562 0 0 1 -4.670543,6.54661 4.7256513,6.5470562 0 0 1 -4.779474,-6.39392 4.7256513,6.5470562 0 0 1 4.559071,-6.695736 4.7256513,6.5470562 0 0 1 4.885806,6.237759"
+                      sodipodi:open="true" />
+            </g>
+        </svg>
+    </div>
+    <script>
+        // Mostrar/ocultar botão baseado no scroll
+        window.addEventListener('scroll', function() {
+            const codexinoBtn = document.getElementById('codexinoScrollTop');
+            if (window.scrollY > 300) {
+                codexinoBtn.classList.add('show');
+            } else {
+                codexinoBtn.classList.remove('show');
+            }
+        });
+
+        // Scroll suave para o topo - VERIFICAR SE ESTÁ FUNCIONANDO
+        document.getElementById('codexinoScrollTop').addEventListener('click', function() {
+            console.log('✅ Codexino clicado!'); // Debug
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+              // Animação dos olhos seguindo o mouse - VERSÃO CORRIGIDA
+                function setupCodexinoEyes() {
+            const codexino = document.getElementById('codexinoScrollTop');
+            if (!codexino) return;
+
+            const pupilaEsquerda = codexino.querySelector('#path12238');
+            const pupilaDireita = codexino.querySelector('#path12238-6');
+
+            if (!pupilaEsquerda || !pupilaDireita) return;
+
+            console.log('✅ Movimento elíptico ativado!');
+
+            // ✅ PARÂMETROS DOS TRILHOS ELÍPTICOS
+            const ellipseParams = {
+                // Trilho do olho esquerdo (elipse menor dentro do olho)
+                left: {
+                    radiusX: 15.8,   // Movimento horizontal máximo
+                    radiusY: 14.8    // Movimento vertical máximo
+                },
+                // Trilho do olho direito (elipse menor dentro do olho)
+                right: {
+                    radiusX: 15.2,   // Movimento horizontal máximo
+                    radiusY: 14.0    // Movimento vertical máximo
+                }
+            };
+
+            document.addEventListener('mousemove', function(e) {
+                const rect = codexino.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+
+                // ✅ Vetor do mouse em relação ao centro do Codexino
+                const deltaX = e.clientX - centerX;
+                const deltaY = e.clientY - centerY;
+
+                // ✅ Ângulo do mouse (em radianos)
+                const angle = Math.atan2(deltaY, deltaX);
+
+                // ✅ Distância do mouse (para intensidade)
+                const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+                const maxDistance = 2000;
+
+                if (distance > maxDistance) {
+                    resetPupils();
+                    return;
+                }
+
+                // ✅ Intensidade baseada na distância
+                const intensity = Math.min(distance / maxDistance, 1);
+
+                // ✅ POSIÇÃO NAS ELIPSES (trilhos)
+                // Pupila esquerda segue trilho elíptico esquerdo
+                const moveLeftX = Math.cos(angle) * ellipseParams.left.radiusX * intensity;
+                const moveLeftY = Math.sin(angle) * ellipseParams.left.radiusY * intensity;
+
+                // Pupila direita segue trilho elíptico direito
+                const moveRightX = Math.cos(angle) * ellipseParams.right.radiusX * intensity;
+                const moveRightY = Math.sin(angle) * ellipseParams.right.radiusY * intensity;
+
+                // ✅ APLICA MOVIMENTO
+                pupilaEsquerda.style.transform = `translate(${moveLeftX}px, ${moveLeftY}px)`;
+                pupilaDireita.style.transform = `translate(${moveRightX}px, ${moveRightY}px)`;
+            });
+
+            function resetPupils() {
+                pupilaEsquerda.style.transform = 'translate(0, 0)';
+                pupilaDireita.style.transform = 'translate(0, 0)';
+            }
+
+            document.addEventListener('mouseleave', resetPupils);
+        }
+
+        document.addEventListener('DOMContentLoaded', setupCodexinoEyes);
+    </script>
+</body>
+</html>

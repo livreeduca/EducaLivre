@@ -1,0 +1,136 @@
+﻿@model List<EducaLivreV2.Models.Instituicao>
+@{
+    ViewData["Title"] = "Educa - Encontre a Escola Perfeita";
+}
+
+<!-- Instituições em Destaque -->
+<section class="cards">
+    <div class="container">
+        <h2>Instituições em Destaque</h2>
+        <div class="cards-container-home">
+
+            @if (Model.Any())
+            {
+                @foreach (var instituicaoItem in Model)
+                {
+                    <div class="instituicao-card">
+                        <img src="@instituicaoItem.ImagemPrincipal" alt="@instituicaoItem.nome" class="imagem-escola" />
+                        <div class="info-escola">
+                            <div class="card-top">
+                                <h2 class="nome-escola">@instituicaoItem.nome</h2>
+                                <p class="localizacao">
+                                    <i class="fa fa-map-marker-alt"></i>
+                                    @instituicaoItem.cidade, @instituicaoItem.estado
+                                </p>
+                            </div>
+
+                            <div class="card-bottom">
+                                <!-- NOTA COM LIVRINHOS -->
+                                <div class="nota-livros">
+                                    @Html.Raw(instituicaoItem.NotaLivros)
+                                    <span class="nota-numerica">@instituicaoItem.NotaFormatada</span>
+                                </div>
+
+                                <!-- SELOS -->
+                                <div class="selo">
+                                    @{
+                                        // Mapeamento dos selos
+                                        var mapaSelos = new Dictionary<int, (string url, string titulo)>
+                                                        {
+                                                        { 1, ("/Assets/Selos/educa/01.svg", "Selo de Acessibilidade") },
+                                                        { 2, ("/Assets/Selos/educa/02.svg", "Selo de Apoio Psicopedagógico") },
+                                                        { 3, ("/Assets/Selos/educa/03.svg", "Selo de Apoio à Iniciação Científica") },
+                                                        { 4, ("/Assets/Selos/educa/04.svg", "Selo de Participação Estudantil") },
+                                                        { 5, ("/Assets/Selos/educa/05.svg", "Selo de Biblioteca Atualizada") },
+                                                        { 6, ("/Assets/Selos/educa/06.svg", "Selo de Transparência Acadêmica") },
+                                                        { 7, ("/Assets/Selos/educa/07.svg", "Selo de Qualificação Docente") },
+                                                        { 8, ("/Assets/Selos/educa/08.svg", "Selo de Incentivo à Cultura") },
+                                                        { 9, ("/Assets/Selos/igual/01.svg", "Selo 50/50 Docente") },
+                                                        { 10, ("/Assets/Selos/igual/02.svg", "Selo de Representatividade Curricular") },
+                                                        { 11, ("/Assets/Selos/igual/03.svg", "Selo de Banheiros Neutros") },
+                                                        { 12, ("/Assets/Selos/igual/04.svg", "Selo de Igualdade Salarial") },
+                                                        { 13, ("/Assets/Selos/igual/05.svg", "Selo de Canal de Denúncia") },
+                                                        { 14, ("/Assets/Selos/igual/06.svg", "Selo de Liderança Feminina") },
+                                                        { 15, ("/Assets/Selos/igual/07.svg", "Selo de Formação Antidiscriminatória") },
+                                                        { 16, ("/Assets/Selos/igual/08.svg", "Selo de Inclusão LGBTQIA+") },
+                                                        { 17, ("/Assets/Selos/igual/09.svg", "Selo de Apoio a Mães Estudantes") },
+                                                        { 18, ("/Assets/Selos/eco/01.svg", "Selo Eco-Friendly") },
+                                                        { 19, ("/Assets/Selos/eco/02.svg", "Selo de Energia Limpa") },
+                                                        { 20, ("/Assets/Selos/eco/03.svg", "Selo de Transporte Sustentável") }
+                                                        };
+                                    }
+
+                                    @foreach (var seloId in instituicaoItem.SelosIds)
+                                    {
+                                        if (mapaSelos.ContainsKey(seloId))
+                                        {
+                                            var selo = mapaSelos[seloId];
+                                            <div class="selo-item" data-tooltip="@selo.titulo">
+                                                <a href="/Selo#selo-@seloId" title="@selo.titulo">
+                                                    <img src="@selo.url" alt="@selo.titulo">
+                                                </a>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+
+                                <!-- BOTÃO DETALHES -->
+                                <a href="@Url.Action("Detalhes", "Busca", new { id = instituicaoItem.id })" class="btn-detalhes">
+                                    Ver Detalhes
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <!-- Se não houver instituições no banco, mostra uma mensagem -->
+                <div class="nenhuma-instituicao">
+                    <h3>Nenhuma instituição cadastrada</h3>
+                    <p>Em breve teremos instituições disponíveis para você!</p>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+<!-- Seção de Avaliações Recentes -->
+<section class="avaliacoes-recentes">
+    <h2>Avaliações Recentes</h2>
+    <div class="avaliacoes-container">
+        <!-- Avaliação 1 -->
+        <div class="avaliacao-card">
+            <img src="/Assets/users/javed6432.jpg" alt="Avatar do usuário Javed" class="avatar">
+            <div class="avaliacao-conteudo">
+                <div class="topo">
+                    <strong>Javed6432</strong>
+                    <span class="tag">Aluno</span>
+                </div>
+                <p class="comentario">"Faculdade complicada mas estou me formando Escritor!"</p>
+                <p class="escola">Luton University</p>
+            </div>
+        </div>
+
+        <!-- Avaliação 2 -->
+        <div class="avaliacao-card">
+            <img src="/Assets/users/julie_123.jpg" alt="Avatar do usuário Julie" class="avatar">
+            <div class="avaliacao-conteudo">
+                <div class="topo">
+                    <strong>Julie_123</strong>
+                    <span class="tag">Ex-Aluno</span>
+                </div>
+                <p class="comentario">"Me graduei nesta instituição, bons professores"</p>
+                <p class="escola">Diablo Valley College</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        function mostrarBuscaEmDesenvolvimento() {
+            alert('🔨 Página de detalhes em desenvolvimento!\nEm breve você poderá ver informações completas das instituições!');
+        }
+    </script>
+}

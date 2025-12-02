@@ -1,0 +1,61 @@
+﻿@model EducaLivreV2.Models.Usuario
+
+@{
+    ViewData["Title"] = "Criar Usuário";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<!-- Mensagem de Sucesso -->
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="fa fa-check-circle"></i> @TempData["MensagemSucesso"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<form asp-action="Create" method="post">
+    <div class="form-group mb-3">
+        <label asp-for="Nome" class="form-label">Nome Completo *</label>
+        <input asp-for="Nome" class="form-control" required />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Email" class="form-label">E-mail *</label>
+        <input asp-for="Email" type="email" class="form-control" required />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Senha" class="form-label">Senha *</label>
+        <input asp-for="Senha" type="password" class="form-control"
+               placeholder="Mínimo 6 caracteres" minlength="6" required />
+        <span asp-validation-for="Senha" class="text-danger"></span>
+        <small class="text-muted">A senha será criptografada automaticamente</small>
+    </div>
+
+    <div class="form-group mb-3">
+        <label class="form-label">Tipo de Usuário</label>
+        <select name="TipoId" class="form-control">
+            <option value="1">Administrador</option>
+            <option value="2" selected>Usuário Comum</option>
+            <option value="3">Moderador</option>
+        </select>
+    </div>
+
+    <div class="d-flex gap-2">
+        <button type="submit" class="btn btn-success">
+            <i class="fa fa-floppy-o"></i> Salvar
+        </button>
+
+        <a class="btn btn-outline-primary" asp-action="Index">
+            <i class="fa fa-arrow-left"></i> Voltar
+        </a>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

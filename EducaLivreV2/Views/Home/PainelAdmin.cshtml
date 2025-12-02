@@ -1,0 +1,173 @@
+﻿@{
+    ViewData["Title"] = "Painel Administrativo";
+}
+
+<div class="container mt-4">
+    <h1 class="text-center mb-4">
+        <i class="fas fa-cogs"></i> Painel Administrativo
+    </h1>
+
+    <!-- Cards de Estatísticas -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card text-white bg-primary">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Total Usuários</h5>
+                    <h2>@ViewData["TotalUsuarios"]</h2>
+                    <i class="fas fa-users fa-2x"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-success">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Escolas Ativas</h5>
+                    <h2>@ViewData["TotalEscolas"]</h2>
+                    <i class="fas fa-school fa-2x"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-warning">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Avaliações</h5>
+                    <h2>0</h2>
+                    <i class="fas fa-star fa-2x"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-info">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Comentários</h5>
+                    <h2>0</h2>
+                    <i class="fas fa-comments fa-2x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ações Rápidas -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    <h5 class="mb-0"><i class="fas fa-bolt"></i> Ações Rápidas</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3 mb-2">
+                            <a href="@Url.Action("Index", "Usuario")" class="btn btn-outline-primary w-100">
+                                <i class="fas fa-users"></i> Gerenciar Usuários
+                            </a>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <a href="#" class="btn btn-outline-success w-100">
+                                <i class="fas fa-school"></i> Gerenciar Escolas
+                            </a>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <a href="#" class="btn btn-outline-warning w-100">
+                                <i class="fas fa-star"></i> Moderar Avaliações
+                            </a>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <a href="#" class="btn btn-outline-info w-100">
+                                <i class="fas fa-comments"></i> Ver Comentários
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Últimas Atividades -->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-user-plus"></i> Últimos Usuários</h5>
+                </div>
+                <div class="card-body">
+                    @if (ViewData["UltimosUsuarios"] != null)
+                    {
+                        <div class="list-group">
+                            @foreach (var usuario in (List<EducaLivreV2.Models.Usuario>)ViewData["UltimosUsuarios"])
+                            {
+                                <div class="list-group-item">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <strong>@usuario.Nome</strong><br>
+                                            <small class="text-muted">@usuario.Email</small>
+                                        </div>
+                                        <span class="badge bg-secondary">@usuario.TipoId</span>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted text-center">Nenhum usuário cadastrado recentemente.</p>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-school"></i> Últimas Escolas</h5>
+                </div>
+                <div class="card-body">
+                    @if (ViewData["UltimasEscolas"] != null)
+                    {
+                        <div class="list-group">
+                            @foreach (var escola in (List<EducaLivreV2.Models.Instituicao>)ViewData["UltimasEscolas"])
+                            {
+                                <div class="list-group-item">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <strong>@escola.nome</strong><br>
+                                            <small class="text-muted">@escola.cidade/@escola.estado</small>
+                                        </div>
+                                        <span class="badge bg-success">@escola.nota/5.0</span>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted text-center">Nenhuma escola cadastrada recentemente.</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card-title {
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .card h2 {
+        font-size: 2.5rem;
+        margin: 10px 0;
+    }
+</style>

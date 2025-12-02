@@ -1,0 +1,220 @@
+﻿@model EducaLivreV2.Controllers.ContatoViewModel
+@{
+    ViewData["Title"] = "Fale Conosco";
+}
+
+@section Styles {
+    <style>
+        .contato-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .contato-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+            .contato-header h1 {
+                color: #2c3e50;
+                margin-bottom: 1rem;
+            }
+
+            .contato-header p {
+                color: #7f8c8d;
+                font-size: 1.1rem;
+            }
+
+        .contato-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+            .form-control:focus {
+                border-color: #3498db;
+                box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+                outline: none;
+            }
+
+        .form-select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: white;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-enviar {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+            .btn-enviar:hover {
+                background: #219653;
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+            }
+
+            .btn-enviar:disabled {
+                background: #bdc3c7;
+                cursor: not-allowed;
+                transform: none;
+                box-shadow: none;
+            }
+
+        .alert {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .alert-success {
+            background: #d5f5e3;
+            color: #27ae60;
+            border: 1px solid #2ecc71;
+        }
+
+        .alert-danger {
+            background: #fadbd8;
+            color: #e74c3c;
+            border: 1px solid #e74c3c;
+        }
+
+        .text-danger {
+            color: #e74c3c;
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+            display: block;
+        }
+
+        .contato-info {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 3rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+            .info-item i {
+                color: #3498db;
+                font-size: 1.2rem;
+                margin-right: 1rem;
+                width: 20px;
+            }
+    </style>
+}
+
+<div class="contato-container">
+    <div class="contato-header">
+        <h1>Fale Conosco</h1>
+        <p>Tem alguma dúvida, sugestão ou precisa de ajuda? Entre em contato conosco!</p>
+    </div>
+
+    <!-- Mensagem de Sucesso -->
+    @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success">
+            <i class="fa fa-check-circle"></i> @TempData["MensagemSucesso"]
+        </div>
+    }
+
+    <form method="post" class="contato-form">
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <label class="form-label" asp-for="Nome">Nome Completo *</label>
+            <input type="text" class="form-control" asp-for="Nome" placeholder="Seu nome completo">
+            <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" asp-for="Email">E-mail *</label>
+            <input type="email" class="form-control" asp-for="Email" placeholder="seu@email.com">
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" asp-for="Assunto">Assunto *</label>
+            <select class="form-select" asp-for="Assunto">
+                <option value="">Selecione um assunto</option>
+                <option value="Dúvida">Dúvida sobre o site</option>
+                <option value="Sugestão">Sugestão de melhoria</option>
+                <option value="Problema">Reportar problema</option>
+                <option value="Parceria">Proposta de parceria</option>
+                <option value="Outro">Outro assunto</option>
+            </select>
+            <span asp-validation-for="Assunto" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" asp-for="Mensagem">Mensagem *</label>
+            <textarea class="form-control" asp-for="Mensagem" placeholder="Descreva sua dúvida, sugestão ou problema..."></textarea>
+            <span asp-validation-for="Mensagem" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn-enviar">
+            <i class="fa fa-paper-plane"></i> Enviar Mensagem
+        </button>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        // Validação em tempo real
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            const submitBtn = document.querySelector('.btn-enviar');
+
+            form.addEventListener('input', function() {
+                // Habilita/desabilita botão baseado na validação
+                const isValid = form.checkValidity();
+                submitBtn.disabled = !isValid;
+            });
+
+            // Validação inicial
+            submitBtn.disabled = !form.checkValidity();
+        });
+    </script>
+}
