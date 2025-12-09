@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cl/pcfGB97Y=",
+  "dgSpecHash": "ngddCx4Vydw=",
   "success": true,
-  "projectFilePath": "C:\\webideias\\EducaLivre V3\\EducaLivre\\EducaLivreV2\\EducaLivreV2.csproj",
+  "projectFilePath": "C:\\webideias\\Nova pasta (3)\\EducaLivre\\EducaLivreV2\\EducaLivreV2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sumomo\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Sumomo\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

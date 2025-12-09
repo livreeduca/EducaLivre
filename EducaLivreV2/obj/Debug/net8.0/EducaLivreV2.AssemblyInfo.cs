@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EducaLivreV2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+64b3b4173ce1299c62e58cf37d685bb23963ee37")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b6d57cde13b4050fd8bc4acaf997ebab43c67990")]
 [assembly: System.Reflection.AssemblyProductAttribute("EducaLivreV2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EducaLivreV2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
